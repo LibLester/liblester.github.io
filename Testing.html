@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe/Unsubscribe</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #unsubscribeDialog { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; border: 1px solid #ccc; padding: 20px; z-index: 100; }
+        #overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 50; }
+    </style>
+</head>
+<body>
+
+    <h1>Subscribe to Our Newsletter</h1>
+    <input type="email" id="email" placeholder="Enter your email address" required>
+    <button id="subscribeBtn">Subscribe</button>
+    <button id="unsubscribeBtn">Unsubscribe</button>
+
+    <div id="overlay"></div>
+    <div id="unsubscribeDialog">
+        <p>Are you sure you want to unsubscribe?</p>
+        <button id="confirmBtn">Confirm</button>
+        <button id="exitBtn">Exit</button>
+    </div>
+
+    <script>
+        document.getElementById('subscribeBtn').onclick = function() {
+            const email = document.getElementById('email').value;
+            if (email) {
+                alert(`Subscription email sent to: ${email}`);
+                // Here you would typically send the email address to your server
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        };
+
+        document.getElementById('unsubscribeBtn').onclick = function() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('unsubscribeDialog').style.display = 'block';
+        };
+
+        document.getElementById('confirmBtn').onclick = function() {
+            // Redirect to another page after confirmation
+            window.location.href = 'https://lblester.people.ust.hk/rediretion.html';
+        };
+
+        document.getElementById('exitBtn').onclick = function() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('unsubscribeDialog').style.display = 'none';
+        };
+    </script>
+
+</body>
+</html>
